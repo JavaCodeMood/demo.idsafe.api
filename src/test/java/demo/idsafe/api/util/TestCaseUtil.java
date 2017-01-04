@@ -1,3 +1,5 @@
+package demo.idsafe.api.util;
+
 import com.alibaba.fastjson.JSONObject;
 
 import org.apache.commons.io.FileUtils;
@@ -54,7 +56,7 @@ public class TestCaseUtil {
         return null;
     }
 
-    static String getFileBase64Str(String fileName) throws IOException {
+    public static String getFileBase64Str(String fileName) throws IOException {
         String filePath = System.getProperty("user.dir") + "//src//test//resources//idcard//" + fileName;
         System.out.println("测试照片文件：" + filePath);
         File file = new File(filePath);

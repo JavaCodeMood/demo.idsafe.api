@@ -1,3 +1,5 @@
+package demo.idsafe.api.util;
+
 import java.security.MessageDigest;
 
 /**
@@ -27,8 +29,8 @@ public class MD5Utils {
                     str[m] = (char) (str[m] - ' ');
                 }
             }
-            //System.out.println("[MD5Utils] [source String]" + source);
-            //System.out.println("[MD5Utils] [MD5    String]" + new String(str));
+            //System.out.println("[demo.idsafe.api.util.MD5Utils] [source String]" + source);
+            //System.out.println("[demo.idsafe.api.util.MD5Utils] [MD5    String]" + new String(str));
             return new String(str);
         } catch (Exception e) {
         }

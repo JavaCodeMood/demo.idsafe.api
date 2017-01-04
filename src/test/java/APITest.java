@@ -1,6 +1,7 @@
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,14 +10,17 @@ import java.io.UnsupportedEncodingException;
 import java.util.Date;
 import java.util.UUID;
 
+import demo.idsafe.api.util.MD5Utils;
+import demo.idsafe.api.util.TestCaseUtil;
+
 /**
  * 测试异步通知接收接口
  *
  * @author geosmart
  * @date 2016-10-05
  */
-public class NotiyRecvTest {
-    //TODO 线上地址见对接文档，商户公钥，商户私钥，套餐编号商户开户时会下发到商户邮件
+public class APITest {
+    //TODO 线上地址见对接文档中的服务描述，商户公钥，商户私钥，套餐编号商户开户时会下发到商户邮件
 
     static final String IDCARD_FRONT_OCR = "http://10.10.1.20:8080/idsafe-front/frontserver/4.2/api/idcard_front_photo_ocr";
     static final String IDCARD_BACK_OCR = "http://10.10.1.20:8080/idsafe-front/frontserver/4.2/api/idcard_back_photo_ocr";
@@ -138,6 +142,11 @@ public class NotiyRecvTest {
         JSONObject resp_front = TestCaseUtil.doHttpRequest(IDCARDVERIFY_AND_COMPARE, reqJson);
         System.out.println("身份验证、人脸比对组合接口识别结果：" + JSON.toJSONString(resp_front, true));
         return resp_front;
+    }
+
+    @After
+    public void teardown() throws IOException {
+        System.out.println("teardown...");
     }
 
 }
