@@ -21,17 +21,17 @@ import demo.idsafe.api.util.TestCaseUtil;
  */
 public class APITest {
     //TODO 线上地址见对接文档中的服务描述，商户公钥，商户私钥，套餐编号商户开户时会下发到商户邮件
-
-    static final String IDCARD_FRONT_OCR = "http://10.10.1.20:8080/idsafe-front/frontserver/4.2/api/idcard_front_photo_ocr";
-    static final String IDCARD_BACK_OCR = "http://10.10.1.20:8080/idsafe-front/frontserver/4.2/api/idcard_back_photo_ocr";
-    static final String IDCARDVERIFY_AND_COMPARE = "http://10.10.1.20:8080/idsafe-front/frontserver/4.2/api/idcard_verify_and_compare";
-    static final String CHASET_UTF_8 = "UTF-8";
     //商户公钥
-    String pub_key = "4ad2c7c4-f9fa-456b-92cd-056d5e5bcd59";
+    final static String pub_key = "4ad2c7c4-f9fa-456b-92cd-056d5e5bcd59";
+
+    static final String IDCARD_FRONT_OCR = "http://10.10.1.20:8080/idsafe-front/frontserver/4.2/api/idcard_front_photo_ocr/pubkey/" + pub_key;
+    static final String IDCARD_BACK_OCR = "http://10.10.1.20:8080/idsafe-front/frontserver/4.2/api/idcard_back_photo_ocr/pubkey/" + pub_key;
+    static final String IDCARDVERIFY_AND_COMPARE = "http://10.10.1.20:8080/idsafe-front/frontserver/4.2/api/idcard_verify_and_compare/pubkey/" + pub_key;
+    static final String CHASET_UTF_8 = "UTF-8";
     //商户私钥
-    String security_key = "2e6b6da8-77b9-4268-a8ba-8ff47ca7e6b6";
+    final static String security_key = "2e6b6da8-77b9-4268-a8ba-8ff47ca7e6b6";
     //套餐编号
-    String package_code = "";
+    final static String package_code = "";
 
     public static String getMD5Sign(String pub_key, String partner_order_id, String sign_time, String security_key) throws UnsupportedEncodingException {
         String signStr = String.format("pub_key=%s|partner_order_id=%s|sign_time=%s|security_key=%s", pub_key, partner_order_id, sign_time, security_key);
