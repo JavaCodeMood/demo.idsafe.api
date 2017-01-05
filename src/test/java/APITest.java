@@ -14,7 +14,7 @@ import demo.idsafe.api.util.MD5Utils;
 import demo.idsafe.api.util.TestCaseUtil;
 
 /**
- * 测试异步通知接收接口
+ * 云慧眼API接口调用测试用例
  *
  * @author geosmart
  * @date 2016-10-05
