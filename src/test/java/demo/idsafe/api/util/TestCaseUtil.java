@@ -43,6 +43,7 @@ public class TestCaseUtil {
         StringEntity entity = new StringEntity(reqJson.toJSONString(), CHASET_UTF_8);
         entity.setContentEncoding(CHASET_UTF_8);
         entity.setContentType("application/json");
+        System.out.println(url);
         HttpPost httpPost = new HttpPost(url);
         httpPost.setEntity(entity);
 
