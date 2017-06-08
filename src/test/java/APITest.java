@@ -14,7 +14,7 @@ import demo.idsafe.api.util.MD5Utils;
 import demo.idsafe.api.util.TestCaseUtil;
 
 /**
- * 云慧眼API接口调用测试用例
+ * 云慧眼接口调用测试用例
  *
  * @author geosmart
  * @date 2016-10-05
@@ -25,13 +25,15 @@ public class APITest {
     static final String pub_key = "4ad2c7c4-f9fa-456b-92cd-056d5e5bcd59";
 
     //身份证正面OCR接口
-    static final String IDCARD_FRONT_OCR = "http://10.10.0.230:8080/idsafe-front/frontserver/4.2/api/idcard_front_photo_ocr/pub_key/" + pub_key;
+    static final String IDCARD_FRONT_OCR = "http://10.10.0.230:8080/idsafe-front/frontserver/4.3/api/idcard_front_photo_ocr/pub_key/" + pub_key;
     //身份证背面OCR接口
-    static final String IDCARD_BACK_OCR = "http://10.10.0.230:8080/idsafe-front/frontserver/4.2/api/idcard_back_photo_ocr/pub_key/" + pub_key;
-    //身份验证和人脸比对组合接口
-    static final String IDCARD_VERIFY_AND_COMPARE = "http://10.10.0.230:8080/idsafe-front/frontserver/4.2/api/idcard_verify_and_compare/pub_key/" + pub_key;
+    static final String IDCARD_BACK_OCR = "http://10.10.0.230:8080/idsafe-front/frontserver/4.3/api/idcard_back_photo_ocr/pub_key/" + pub_key;
     //身份验证接口
-    static final String IDCARD_VERIFY = "http://10.10.0.230:8080/idsafe-front/frontserver/4.2/api/idcard_verify/pub_key/" + pub_key;
+    static final String IDCARD_VERIFY_AND_COMPARE = "http://10.10.0.230:8080/idsafe-front/frontserver/4.3/api/idcard_verify/pub_key/" + pub_key;
+    //身份验证接口
+    static final String IDCARD_VERIFY = "http://10.10.0.230:8080/idsafe-front/frontserver/4.3/api/idcard_verify/pub_key/" + pub_key;
+    //人脸比对接口
+    static final String IDCARD_VERIFY_AND_COMPARE = "http://10.10.0.230:8080/idsafe-front/frontserver/4.3/api/face_compare/pub_key/" + pub_key;
 
     //商户私钥
     static final String security_key = "2e6b6da8-77b9-4268-a8ba-8ff47ca7e6b6";
