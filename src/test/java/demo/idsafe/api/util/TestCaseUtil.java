@@ -10,7 +10,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -47,7 +46,6 @@ public class TestCaseUtil {
         HttpPost httpPost = new HttpPost(url);
         httpPost.setEntity(entity);
 
-        //调用异步通知接收接口
         HttpResponse resp = client.execute(httpPost);
         if (resp.getStatusLine().getStatusCode() == 200) {
             HttpEntity he = resp.getEntity();
@@ -57,11 +55,12 @@ public class TestCaseUtil {
         return null;
     }
 
-    public static String getFileBase64Str(String fileName) throws IOException {
+    public  static String getFileBase64Str(String fileName) throws IOException {
         String filePath = System.getProperty("user.dir") + "//src//test//resources//idcard//" + fileName;
         System.out.println("测试照片文件：" + filePath);
         File file = new File(filePath);
         byte[] front = FileUtils.readFileToByteArray(file);
         return Base64.getEncoder().encodeToString(front);
+
     }
 }
