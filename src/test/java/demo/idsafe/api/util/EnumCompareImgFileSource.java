@@ -1,4 +1,4 @@
-package com.udcredit.idsafe.client.front.constant;
+package demo.idsafe.api.util;
 
 /**
  * 人脸比对照片来源参数

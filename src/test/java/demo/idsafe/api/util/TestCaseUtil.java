@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * 单元测试辅助类
@@ -57,10 +58,10 @@ public class TestCaseUtil {
 
     public  static String getFileBase64Str(String fileName) throws IOException {
         String filePath = System.getProperty("user.dir") + "//src//test//resources//idcard//" + fileName;
-        System.out.println("测试照片文件：" + filePath);
+        System.out.println("测试文件：" + filePath);
         File file = new File(filePath);
         byte[] front = FileUtils.readFileToByteArray(file);
         return Base64.getEncoder().encodeToString(front);
-
     }
+
 }
