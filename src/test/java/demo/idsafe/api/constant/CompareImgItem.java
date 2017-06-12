@@ -1,4 +1,4 @@
-package demo.idsafe.api.util;
+package demo.idsafe.api.constant;
 
 
 /**

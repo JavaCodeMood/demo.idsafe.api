@@ -1,26 +1,27 @@
-package demo.idsafe.api.util;
+package demo.idsafe.api.constant;
 
 /**
- * 人脸比对照片来源参数
+ * 人脸比对照片类型参数
  *
  * @author geosmart
  * @date 2017/05/25
  */
-public enum EnumCompareImgFileSource {
-    SESSION_ID("0", "会话ID"),
-    URL("1", "有盾返回的照片URL地址"),
-    BASE_64("2", "照片的Base64格式字符串"),;
+public enum EnumCompareImgFileType {
+    IDCARD_PORTRAIT_PHOTO("0", "证件照"),
+    LIVING_PHOTO("1", "活体照"),
+    VIDEO_PHOTO("2", "视频存证截图"),
+    GRID_PHOTO("3", "网格照"),;
     private String code;
     private String desc;
 
-    EnumCompareImgFileSource(String code, String desc) {
+    EnumCompareImgFileType(String code, String desc) {
         this.code = code;
         this.desc = desc;
     }
 
-    public static EnumCompareImgFileSource newInstance(String srcCode) {
-        EnumCompareImgFileSource result = null;
-        for (EnumCompareImgFileSource code : EnumCompareImgFileSource.values()) {
+    public static EnumCompareImgFileType newInstance(String srcCode) {
+        EnumCompareImgFileType result = null;
+        for (EnumCompareImgFileType code : EnumCompareImgFileType.values()) {
             if (code.getCode().equals(srcCode)) {
                 result = code;
                 break;
@@ -28,6 +29,7 @@ public enum EnumCompareImgFileSource {
         }
         return result;
     }
+
 
     public String getCode() {
         return code;
