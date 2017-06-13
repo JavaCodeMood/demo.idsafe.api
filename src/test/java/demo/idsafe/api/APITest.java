@@ -23,13 +23,13 @@ import static demo.idsafe.api.constant.EnumCompareImgFileType.LIVING_PHOTO;
 
 
 /**
- * 云慧眼接口调用测试用例
+ * 云慧眼API接口调用-测试用例
  *
  * @author geosmart
  * @date 2017-06-12
  */
 public class APITest {
-    //TODO 线上地址见对接文档中的服务描述，商户公钥，商户私钥，套餐编号商户开户时会下发到商户邮件
+    //TODO 线上地址见对接文档中的服务描述，商户公钥，商户私钥商户开户时会下发到商户对接人员邮件
     //商户公钥
     static final String pub_key = "4ad2c7c4-f9fa-456b-92cd-056d5e5bcd59";
     //商户私钥
@@ -86,9 +86,9 @@ public class APITest {
     public void test_living_detect() throws IOException {
         String fileName = "";
         //获取-活体检测唇语验证码
-        LivingValidateData();
+        getLivingValidateData();
         //活体检测
-        LivingDetection(fileName);
+        livingDetection(fileName);
     }
 
     /**
@@ -224,10 +224,10 @@ public class APITest {
     /**
      * 活体检测接口
      */
-    JSONObject LivingDetection(String fileName) throws IOException {
+    JSONObject livingDetection(String fileName) throws IOException {
         JSONObject reqJson = new JSONObject();
         //调用活体检测
-        JSONObject jsonObject = LivingValidateData();
+        JSONObject jsonObject = getLivingValidateData();
         JSONObject json = jsonObject.getJSONObject("data");
         String session_id = json.getString("session_id");
         reqJson.put("header", getRequestHeader(session_id));
@@ -245,7 +245,7 @@ public class APITest {
     /**
      * 活体检测唇语验证接口
      */
-    JSONObject LivingValidateData() throws IOException {
+    JSONObject getLivingValidateData() throws IOException {
         JSONObject reqJson = new JSONObject();
         //调用活体检测唇语
         reqJson.put("header", getRequestHeader(""));

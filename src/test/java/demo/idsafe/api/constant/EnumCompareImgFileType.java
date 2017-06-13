@@ -4,12 +4,12 @@ package demo.idsafe.api.constant;
  * 人脸比对照片类型参数
  *
  * @author geosmart
- * @date 2017/05/25
+ * @date 2017/06/13
  */
 public enum EnumCompareImgFileType {
     IDCARD_PORTRAIT_PHOTO("0", "证件照"),
     LIVING_PHOTO("1", "活体照"),
-    VIDEO_PHOTO("2", "视频存证截图"),
+    VIDEO_PHOTO("2", "视频存证截图（SDK产品）"),
     GRID_PHOTO("3", "网格照"),;
     private String code;
     private String desc;

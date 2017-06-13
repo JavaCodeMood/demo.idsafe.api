@@ -5,11 +5,12 @@ package demo.idsafe.api.constant;
  * 人脸比对照片参数
  *
  * @author geosmart
- * @date 2017/05/25
+ * @date 2017/06/13
  */
 public class CompareImgItem {
     /**
      * 照片来源
+     *
      * 字段值：
      * 1-会话ID（获取输入照片源）；
      * 2-有盾返回的照片URL地址；
@@ -18,15 +19,19 @@ public class CompareImgItem {
     EnumCompareImgFileSource img_file_source;
 
     /**
-     * 照片来源
+     * 照片类型
+     *
      * 字段值：
      * 0-证件照；
      * 1-活体照；
-     * 2-网格照；
+     * 2-视频存证截图（SDK产品）；
+     * 3-网格照；
      */
     EnumCompareImgFileType img_file_type;
 
     /**
+     * 照片内容
+     *
      * 1）当img_file_source=1时，该字段值为会话ID;
      * 2）当img_file_source=2时，该字段值为URL地址；
      * 3）当img_file_source=3时，该字段值为照片的Base64格式字符串；

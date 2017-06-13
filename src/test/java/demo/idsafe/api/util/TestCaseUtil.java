@@ -10,12 +10,12 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.Date;
-import java.util.UUID;
 
 /**
  * 单元测试辅助类
@@ -56,7 +56,10 @@ public class TestCaseUtil {
         return null;
     }
 
-    public  static String getFileBase64Str(String fileName) throws IOException {
+    /**
+     * 从测试目录（src//test//resources//idcard）获取测试base64数据
+     */
+    public static String getFileBase64Str(String fileName) throws IOException {
         String filePath = System.getProperty("user.dir") + "//src//test//resources//idcard//" + fileName;
         System.out.println("测试文件：" + filePath);
         File file = new File(filePath);
