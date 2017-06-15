@@ -29,10 +29,10 @@ import static demo.idsafe.api.constant.EnumCompareImgFileType.LIVING_PHOTO;
  * @date 2017-06-12
  */
 public class APITest {
-    //TODO 线上地址见对接文档中的服务描述，商户公钥，商户私钥商户开户时会下发到商户对接人员邮件
+    //TODO 线上地址见对接文档中的服务描述，商户公钥，商户密钥商户开户时会下发到商户对接人员邮件
     //商户公钥
     static final String pub_key = "4ad2c7c4-f9fa-456b-92cd-056d5e5bcd59";
-    //商户私钥
+    //商户密钥
     static final String security_key = "2e6b6da8-77b9-4268-a8ba-8ff47ca7e6b6";
 
     //身份证正面OCR接口
@@ -49,7 +49,7 @@ public class APITest {
 
     //活体检测接口
     static final String LVING_DETECTION = "http://10.1.30.51:8000/idsafe-front/front/4.3/api/living_detection/pub_key/" + pub_key;
-    //活体检测唇语验证接口
+    //活体检测唇语验证码接口
     static final String VALIDATEDATA = "http://10.1.30.51:8000/idsafe-front/front/4.3/api/get_living_validate_data/pub_key/" + pub_key;
 
     /**
@@ -73,10 +73,10 @@ public class APITest {
     public void test_ocr() throws IOException {
         //身份证正面OCR
         idCardFrontOCR("front.jpg");
-        //身份证背面OCR
+        //身份证反面OCR
         idCardBackOCR("back.jpg");
-        //身份证正面OCR识别结果更新
-        updateIdcardFrontOCR("王良仁", "330326199308224113");
+        //身份证正面OCR识别更新
+        updateIdcardFrontOCR("冯大良", "330326199911114111");
     }
 
     /**
@@ -147,9 +147,9 @@ public class APITest {
         body.put("idcard_back_photo", TestCaseUtil.getFileBase64Str(fileName));
         reqJson.put("body", body);
 
-        System.out.println("身份证背面OCR识别-输入参数：" + JSON.toJSONString(reqJson, true));
+        System.out.println("身份证反面OCR识别-输入参数：" + JSON.toJSONString(reqJson, true));
         JSONObject resp_front = TestCaseUtil.doHttpRequest(IDCARD_BACK_OCR, reqJson);
-        System.out.println("身份证背面OCR识别-输出结果：" + JSON.toJSONString(resp_front, true));
+        System.out.println("身份证发面OCR识别-输出结果：" + JSON.toJSONString(resp_front, true));
         return resp_front;
     }
 
@@ -189,7 +189,7 @@ public class APITest {
 
         System.out.println("实名验证接口-输入参数：" + JSON.toJSONString(reqJson, true));
         JSONObject resp_front = TestCaseUtil.doHttpRequest(IDCARD_VERIFY, reqJson);
-        System.out.println("实名验证接口-识别结果：" + JSON.toJSONString(resp_front, true));
+        System.out.println("实名验证接口-输出结果：" + JSON.toJSONString(resp_front, true));
         return resp_front;
     }
 
@@ -243,15 +243,15 @@ public class APITest {
     }
 
     /**
-     * 活体检测唇语验证接口
+     * 活体检测唇语验证码接口
      */
     JSONObject getLivingValidateData() throws IOException {
         JSONObject reqJson = new JSONObject();
         //调用活体检测唇语
         reqJson.put("header", getRequestHeader(""));
-        System.out.println("活体检测唇语验证接口-输入参数：" + JSON.toJSONString(reqJson, true));
+        System.out.println("活体检测唇语验证码接口-输入参数：" + JSON.toJSONString(reqJson, true));
         JSONObject res = TestCaseUtil.doHttpRequest(VALIDATEDATA, reqJson);
-        System.out.println("活体检测唇语验证接口-输出结果：" + JSON.toJSONString(res, true));
+        System.out.println("活体检测唇语验证码接口-输出结果：" + JSON.toJSONString(res, true));
         return res;
     }
 
