@@ -36,7 +36,7 @@ public class APITest {
     //商户私钥
     static final String security_key = "2e6b6da8-77b9-4268-a8ba-8ff47ca7e6b6";
     //套餐编号
-    static final String package_code = "";
+    static final String package_code = "TC010";
 
     public static String getMD5Sign(String pub_key, String partner_order_id, String sign_time, String security_key) throws UnsupportedEncodingException {
         String signStr = String.format("pub_key=%s|partner_order_id=%s|sign_time=%s|security_key=%s", pub_key, partner_order_id, sign_time, security_key);
@@ -50,6 +50,15 @@ public class APITest {
         System.out.println("setup...");
     }
 
+    @Test
+    public void test_md5() throws UnsupportedEncodingException {
+        String pub_key="2f60725e-2afb-42c4-b9c9-36f1f68e668a";
+        String partner_order_id="0";
+        String sign_time="20170616185458";
+        String security_key="b672580d-e4fd-4fa2-b60a-97b574cf9768";
+        System.out.println(getMD5Sign(pub_key, partner_order_id, sign_time, security_key));
+
+    }
     /**
      * 调用身份证正面OCR接口+调用身份证背面OCR接口+调用身份验证、人脸比对组合接口
      */
@@ -86,7 +95,7 @@ public class APITest {
     @Test
     public void test_idcard_verify() throws IOException, InterruptedException {
         String id_number = "13032219841008915X";
-        String id_name = "冯国良";
+        String id_name = "有盾";
         JSONObject res = IDcardVerify(id_number, id_name);
     }
 
